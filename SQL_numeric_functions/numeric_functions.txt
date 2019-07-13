@@ -1,0 +1,169 @@
+---------------------------numeric functions
+
+--------------------------------------------ABS function
+SELECT ABS(-1.0), ABS(0.0), ABS(1.0)
+
+DECLARE @int int
+SET @int = -12345
+SELECT ABS(@int)
+-------------------------------------------
+-------------------------------------------ACOS function
+DECLARE @cos float
+SET @cos = -1.0
+SELECT CONVERT(varchar, ACOS(@cos))
+--------------------------------------------
+------------------------------------------ASIN function
+DECLARE @angle float
+SET @angle = -1.00
+SELECT CONVERT(varchar, ASIN(@angle))
+------------------------------------------
+-----------------------------------------ATAN function
+SELECT CONVERT(varchar, ATAN(-45.01))
+SELECT ATAN(45.87) AS [1],  
+    ATAN(-181.01) AS [2],  
+    ATAN(0) AS [3],  
+    ATAN(0.1472738) AS [4],  
+    ATAN(197.1099392) AS [5]
+-------------------------------------------
+-------------------------------------------ATN2 function
+DECLARE @x float = 35.175643, @y float = 129.44
+SELECT CONVERT(varchar, ATN2(@y,@x))
+-------------------------------------------
+-------------------------------------------CEILING function
+SELECT CEILING(123.45), CEILING(-123.45), CEILING(-123.65)
+-------------------------------------------
+-------------------------------------------COS function
+DECLARE @angle float
+SET @angle = 14.78 
+SELECT CONVERT(varchar,COS(@angle))
+----------------------------------------------
+--------------------------------------------COT function
+DECLARE @angle float
+SET @angle = 14.78 
+SELECT CONVERT(varchar,COT(@angle))
+---------------------------------------------
+----------------------------------------------DEGREE function
+SELECT CONVERT(varchar, DEGREES((PI())))
+----------------------------------------------
+--------------------------------------------EXP function
+-------------------------------------------find exponent of a number
+DECLARE @var float  
+SET @var = 10  
+SELECT CONVERT(varchar,EXP(@var))  
+--------------------------------------------
+------------------------------------------find exponential and natural logarithm
+SELECT EXP( LOG(20)), LOG( EXP(20))  
+----------------------------------------
+-------------------------------------------------
+---------------------------------------------FLOOR function
+SELECT FLOOR(123.45), FLOOR(-1234.45)
+-------------------------------------------------------
+--------------------------------------------LOG function
+-----------------------------------------calculating logarithm of a number
+DECLARE @var float = 10;  
+SELECT CONVERT(varchar, LOG(@var))
+-------------------------------------------
+------------------------------------------calculating logarithm of exponent
+SELECT LOG (EXP (10))
+----------------------------------------------
+-----------------------------------------
+---------------------------------------------LOG10 function
+---------------------------------------------calculating base 10 logarithms
+DECLARE @var float;  
+SET @var = 145.175643;  
+SELECT CONVERT(varchar,LOG10(@var)) 
+----------------------------------------------
+----------------------------------------------calculating the result of raising a base10 logarithm to a specified power
+SELECT POWER (10, LOG10(5))
+------------------------------------------------
+------------------------------------------------
+----------------------------------------------PI function
+SELECT PI()
+--------------------------------------------
+-----------------------------------------POWER function
+DECLARE @input1 float;  
+DECLARE @input2 float;  
+SET @input1= 2;  
+SET @input2 = 2.5;  
+SELECT POWER(@input1, 3) AS Result1, POWER(@input2, 3) AS Result2
+---------------------------------------------
+--------------------------------------------using POWER to showresults of data type conversion
+SELECT   
+POWER(CAST(2.0 AS float), -100.0) AS FloatResult,  
+POWER(2, -100.0) AS IntegerResult,  
+POWER(CAST(2.0 AS int), -100.0) AS IntegerResult,  
+POWER(2.0, -100.0) AS Decimal1Result,  
+POWER(2.00, -100.0) AS Decimal2Result,  
+POWER(CAST(2.0 AS decimal(5,2)), -100.0) AS Decimal2Result
+---------------------------------------------
+------------------------------------------returns power
+DECLARE @value int, @counter int;  
+SET @value = 2;  
+SET @counter = 1;  
+  
+WHILE @counter < 5  
+   BEGIN  
+      SELECT POWER(@value, @counter)  
+      SET NOCOUNT ON  
+      SET @counter = @counter + 1  
+      SET NOCOUNT OFF  
+   END
+------------------------------------------
+--------------------------------------------RADIAN function
+--------------------------------------using RADIANS to show 0.0
+SELECT RADIANS(1e-307)
+--------------------------------------
+-----------------------------------------using RADIAN to return equivalent angle of a floating expression
+DECLARE @angle float  
+SET @angle = -45.01  
+SELECT CONVERT(varchar, RADIANS(@angle)) 
+-------------------------------------------
+------------------------------------------RAND function
+SELECT RAND(100), RAND(), RAND()  
+
+DECLARE @counter smallint;  
+SET @counter = 1;  
+WHILE @counter < 5  
+   BEGIN  
+      SELECT RAND() Random_Number  
+      SET @counter = @counter + 1  
+   END
+----------------------------------------------
+-------------------------------------------ROUND function
+-------------------------------------using estimates
+SELECT ROUND(1234.56, 3)
+----------------------------------
+--------------------------------------------rounding approximstions
+SELECT ROUND(123.4545, 2), ROUND(123.45, -2)
+--------------------------------------------
+-------------------------------------------SIGN function
+DECLARE @value real  
+SET @value = -1
+WHILE @value < 2
+   BEGIN  
+      SELECT SIGN(@value)  
+	  SELECT @value = @value + 1  
+   END  
+---------------------------------
+-----------------------------------------------SIN function
+DECLARE @angle float
+SET @angle = 14.78 
+SELECT CONVERT(varchar,SIN(@angle))
+---------------------------------------------------
+-------------------------------------SQRT function
+DECLARE @value int  
+SET @value = 1  
+WHILE @value < 10  
+   BEGIN  
+      SELECT SQRT(@value)
+      SET @value = @value + 1  
+   END
+---------------------------------------
+---------------------------------------------SQUARE function
+DECLARE @h float, @r float;  
+SET @h = 5
+SET @r = 1  
+SELECT PI()* SQUARE(@r)* @h AS 'Volume_Of_Cylinder'
+--------------------------------------------------
+--------------------------------------------TAN function
+SELECT TAN(PI()/2), TAN(.45)
